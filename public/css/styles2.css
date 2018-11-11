@@ -1,0 +1,103 @@
+    body {background-color: #ffffff;}
+    .blue {
+        background: #00aced;
+    }
+    .imagep {
+      width: 50%;
+      height: 100%;
+      margin-left: auto;  /* 【ポイント】*/
+      margin-right: auto;
+      margin-bottom: auto;
+    }
+    .center {
+      margin-left: auto;  /* 【ポイント】*/
+      margin-right: auto;
+      padding-bottom: 60px;
+    }
+
+    .grayb {
+        background: #808080;
+        height: 5px;
+    }
+    .sec-1 {
+        background: #99bedb;
+    }
+    .moji {
+          padding-top: 110px;
+          text-align: center;
+          padding-bottom: 50px;
+    }
+    .moji1 {
+          padding-top: 10px;
+          text-align: center;
+          padding-bottom: 20px;
+    }
+    .moji2 {
+          padding-top: 0px;
+          text-align: center;
+    }
+    .moji3 {
+          padding-top: 50px;
+          text-align: center;
+    }
+    #star {
+        width: 90px;
+        padding-right: 20px;
+    }
+    #chat {
+        width: 60px;
+        height: 50px;
+        padding-right: 20px;
+    }
+    .girl {
+      width: 35%;
+      height: 600px;
+      margin-left: auto;  /* 【ポイント】*/
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom:20px;/* 【ポイント】*/
+    }
+    .whiteb {
+      background-color: #ffffff;
+    }
+    .jumbotron {
+
+        background-image: url(background.jpg);
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #email {
+
+        width: 300px;
+
+    }
+
+    #appSummary {
+
+        text-align: center;
+        margin-top:50px;
+        margin-bottom: 50px;
+
+    }
+
+    .card-img-top {
+
+        width: 100%;
+
+    }
+
+    #appStoreIcon {
+
+        width: 200px;
+
+    }
+
+    #footer {
+
+        background-color: aqua;
+        padding-top: 150px;
+        margin-top: 50px;
+        text-align: center;
+        padding-bottom: 150px;
+    }

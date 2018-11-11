@@ -69,6 +69,7 @@ socket.on('newLocationMessage', function (message) {
   scrollToBottom();
 });
 
+// form id
 jQuery('#message-form').on('submit', function (e) {
   e.preventDefault();
 
@@ -81,6 +82,7 @@ jQuery('#message-form').on('submit', function (e) {
   });
 });
 
+// button id
 var locationButton = jQuery('#send-location');
 locationButton.on('click', function () {
   if (!navigator.geolocation) {
