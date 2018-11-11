@@ -2,6 +2,14 @@
     .blue {
         background: #00aced;
     }
+    .red {
+      background: #ff0000;
+    }
+    .dname {
+      padding-top: 50px;
+      text-align: center;
+      padding-right: auto;
+    }
     .imagep {
       width: 50%;
       height: 100%;
@@ -13,6 +21,10 @@
       margin-left: auto;  /* 【ポイント】*/
       margin-right: auto;
       padding-bottom: 60px;
+    }
+    .center_form {
+      margin-left: auto;  /* 【ポイント】*/
+      padding-right: auto;
     }
 
     .grayb {
