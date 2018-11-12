@@ -56,6 +56,21 @@ socket.on('newMessage', function (message) {
   scrollToBottom();
 });
 
+socket.on('newImage', function (image) {
+  var formattedTime = moment(image.createdAt).format('h:mm a');
+  console.log("ok");
+  /*
+  var template = jQuery('#message-template').html();
+  var html = Mustache.render(template, {
+    image: image.file,
+    from: message.from,
+    createdAt: formattedTime
+  });
+
+  jQuery('#messages').append(html);
+  scrollToBottom();*/
+});
+
 socket.on('newLocationMessage', function (message) {
   var formattedTime = moment(message.createdAt).format('h:mm a');
   var template = jQuery('#location-message-template').html();
@@ -79,6 +94,21 @@ jQuery('#message-form').on('submit', function (e) {
     text: messageTextbox.val()
   }, function () {
     messageTextbox.val('')
+  });
+});
+
+// form id
+jQuery('#image-form').on('submit', function (e) {
+  e.preventDefault();
+
+  var imageData = jQuery('[name=image]');
+
+  console.log(imageData);
+
+  socket.emit('createImage', {
+    image: imageData[0].files[0]
+  }, function () {
+
   });
 });
 

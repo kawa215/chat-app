@@ -3,7 +3,7 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 
-const {generateMessage, generateLocationMessage} = require('./utils/message');
+const {generateImage, generateMessage, generateLocationMessage} = require('./utils/message');
 const {isRealString} = require('./utils/validation');
 const {Users} = require('./utils/users');
 
@@ -14,35 +14,69 @@ var server = http.createServer(app);
 var io = socketIO(server);
 var users = new Users();
 
+// ユーザーはpublicへ
 app.use(express.static(publicPath));
 
+//コネクション確立
 io.on('connection', (socket) => {
   console.log('New user connected');
 
+  //　ユーザー参加した時
   socket.on('join', (params, callback) => {
+    // 文字列が空の場合
     if (!isRealString(params.name) || !isRealString(params.room)) {
       return callback('Name and room name are required.');
     }
 
+    // 特定の部屋に
     socket.join(params.room);
+
     users.removeUser(socket.id);
+
+    // ユーザーの追加
     users.addUser(socket.id, params.name, params.room);
 
+    // 指定された部屋のユーザーリストの追加
     io.to(params.room).emit('updateUserList', users.getUserList(params.room));
+
+    // 接続されたユーザーへ送信
     socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
+
+    // 全員に送信
     socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined.`));
+
+    //callback実行
+    callback();
+  });
+
+  socket.on('createImage', (image, callback) => {
+      // 特定のユーザーを取り出す
+    var user = users.getUser(socket.id);
+
+      //  文字列の場合
+    if (user) {
+        // ルームに送信
+      io.to(user.room).emit('newImage', generateImage(user.name, image));
+    }
+    // callback 何もしない
+    console.log(image);
     callback();
   });
 
   socket.on('createMessage', (message, callback) => {
+    // 特定のユーザーを取り出す
     var user = users.getUser(socket.id);
 
+    //  文字列の場合
     if (user && isRealString(message.text)) {
+      // ルームに送信
       io.to(user.room).emit('newMessage', generateMessage(user.name, message.text));
     }
-
+  // callback 実行 テキストボックスを空にする
     callback();
   });
+
+
 
   socket.on('createLocationMessage', (coords) => {
     var user = users.getUser(socket.id);
