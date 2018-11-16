@@ -54,7 +54,7 @@ io.on('connection', (socket) => {
       // 特定のユーザーを取り出す
     var user = users.getUser(socket.id);
 
-    //fs.writeFileSync(`./public/images/uploads/${image.fName}`,new Buffer(image.buffer),'binary');
+    fs.writeFileSync(`./public/images/uploads/${image.fName}`,new Buffer(image.buffer),'binary');
       //  文字列の場合
     if (user) {
         // ルームに送信
