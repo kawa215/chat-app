@@ -1,0 +1,115 @@
+/* * は全てに適用　ただ後でclass指定すればいくらでも上書きできる*/
+*{
+  /*  paddingとborderを幅(width)と高さ(height)に含める*/
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  /*字体　上から優先順位高い　osによってないものがあるからはじめに複数指定しとく*/
+  font-family:HelveticaNeue-Light,
+  "Helvetica Neue Light",
+  "Helvetica Neue",
+  Helvetica,Arial,
+  "Lucida Grande",
+  sans-serif;/* ゴシック*/
+  font-weight:300;/*太さ*/
+  font-size:.95rem
+}
+
+.top{
+  height:100vh;/*画面の割合で表示する*/
+  width:100vw;
+  text-align:center;
+  /*グラデーション*/
+  background:-webkit-linear-gradient(125deg,rgba(255,239,213,1) 0,rgba(255,230,129,1) 100%)
+}
+
+.gameName {
+  font-weight:900;
+  font-size:7.5rem;
+  text-align:center
+}
+
+.selFavCha {
+  font-weight:700;
+  font-size:4.5rem;
+  text-align:left;
+  padding-top: 1%;
+  padding-left: 1%
+}
+
+.girlType {
+  font-weight:900;
+  font-size:7.5rem;
+  text-align:right;
+  padding-bottom: 300px
+}
+
+.girlDesc {
+  font-weight:200;
+  font-size:1.5rem;
+  text-align:right;
+  padding-bottom: 100px
+}
+
+
+img.top {
+  width: 80%;
+  height: 80%
+}/*htmlに合わせた大きさ*/
+
+.girl {
+  margin-left: auto;  /* 【ポイント】*/
+  margin-right: auto;
+}
+
+.together  {/*親div*/
+  position: relative/*相対配置*/
+}
+
+.together p{/*親div*/
+  position: absolute;/*相対配置*/
+  color: red;
+  top: 50%;
+  left: 50%;
+  -ms-transform:
+   translate(-50%,-50%);
+  -webkit-transform:
+    translate(-50%,-50%);
+  transform:
+   translate(-50%,-50%);
+    margin:0;
+    padding:0
+}
+/*hoverはボタンにカーソル合わせた時の変化*/
+button,
+button:hover{
+  border:none;
+  color:#fff;
+  padding:20px
+}
+
+button{
+  background:#265f82;
+  width: 20%;
+  cursor:pointer;/*ポインタから指型変わる*/
+  transition: /*場所　時間　滑らか*/
+  background .3s ease
+}
+
+button:hover{
+  background:#1F4C69
+}
+
+.girlButton {
+  position: absolute;
+  right: 0;
+  bottom: 0
+}
+
+.chat__main{
+    display:flex;
+    /*アイテムが縦に並べられる*/
+    flex-direction:column;
+    height:100vh;
+    width:100%
+}

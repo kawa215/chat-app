@@ -48,6 +48,21 @@
     </li>
   </script>
 
+  <script id="image-template" type="text/template">
+    <li class="message">
+      <div class="message__title">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message__body">
+        <p>
+          <img src="./images/uploads/{{fName}}">
+          <img src="./images/cool.jpg">
+        </p>
+      </div>
+    </li>
+  </script>
+
   <script id="location-message-template" type="text/template">
     <li class="message">
       <div class="message__title">

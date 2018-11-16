@@ -58,17 +58,15 @@ socket.on('newMessage', function (message) {
 
 socket.on('newImage', function (image) {
   var formattedTime = moment(image.createdAt).format('h:mm a');
-  console.log("ok");
-  /*
-  var template = jQuery('#message-template').html();
+  var template = jQuery('#image-template').html();
   var html = Mustache.render(template, {
-    image: image.file,
-    from: message.from,
+    from: image.from,
+    fName: image.fName,
     createdAt: formattedTime
   });
 
   jQuery('#messages').append(html);
-  scrollToBottom();*/
+  scrollToBottom();
 });
 
 socket.on('newLocationMessage', function (message) {
@@ -103,10 +101,12 @@ jQuery('#image-form').on('submit', function (e) {
 
   var imageData = jQuery('[name=image]');
 
-  console.log(imageData);
+  console.log(imageData[0].files[0]);
+  console.log(imageData[0].files[0].name);
 
   socket.emit('createImage', {
-    image: imageData[0].files[0]
+    buffer: imageData[0].files[0],
+    fName: imageData[0].files[0].name
   }, function () {
 
   });

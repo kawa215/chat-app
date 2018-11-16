@@ -8,10 +8,10 @@ var generateMessage = (from, text) => {
   };
 };
 
-var generateImage = (from, image) => {
+var generateImage = (from, fName) => {
   return {
     from,
-    image,
+    fName,
     createdAt: moment().valueOf()
   };
 };

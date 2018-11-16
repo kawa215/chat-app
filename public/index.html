@@ -1,57 +1,39 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+<!-- 一応ばか丁寧にコメント書いていきます-->
+<head>
+  <meta charset="utf-8">
+  <!--ページタイトルウィンどう上のたぶに出てくる名前-->
+  <title>title</title>
+  <!--これはなんかスマホとかの小さい画面になって時に自動でレイアウト変更してくれるやつ-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!--スタイルシート(css)の読み込-->
+  <link rel="stylesheet" href="/css/styles3.css">
+</head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!--bodyからページ中身-->
 
-    <link rel="stylesheet" type="text/css" href="./css/styles2.css">
+<!--classぐらいは勿論知ってる? 一応書きます-->
 
+<!--css に　
+    .top{~~~}って書いてあると思います
+    その~~の中身が<body>で囲まれいる範囲全部(ページ全体)に適用されてる
 
-    <title>Team からあげ</title>
-  </head>
+    ~cssの中身抜粋~
+    .top{
+      height:100vh;　高さ
+      width:100vw;　　幅
+      text-align:center;　文字は中央に配置
+      background(背景)をグラデーションにする　degは角度　スタートの色　変化し終わる色
+      background:-webkit-linear-gradient(125deg,rgba(255,239,213,1) 0,rgba(255,230,129,1) 100%)
+    }
+    -->
+<body class="top">
+  <div class="together">
+    <img src="./images/top.jpg">
+    <p class="gameName">GAME NAME</p>
+  </div>
+  <button onclick="location.href='/select.html'"><h2>START!</h2></button>
+</body>
 
-  <body class="sec-1">
-
-    <div class="sec-1">
-      <nav class="navbar navbar-expand-lg navbar-light blue">
-            <a class="navbar-brand text-white" href="#"><h3>Team からあげ App</h3></a>
-          <ul class="navbar-nav mr-auto"></ul>
-      </nav>
-
-      <div class="container">
-        <div class="row">
-
-            <div class="col-md-6">
-                <h2 class="moji">UPDATE YOUR FASSHION</h2>
-            </div>
-
-            <div class="col-md-6 moji3">
-                <h1>Sign Up </h1>
-
-                <form action="/type.html">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Man</label>
-                      <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="名前を入れてください">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share this name with anyone else.</small>
-                    </div>
-                  <button type="submit" class="btn btn-primary">Start as Man</button>
-                </form>
-                <form action="/join.html">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Women</label>
-                      <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="名前を入れてください">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share this name with anyone else.</small>
-                    </div>
-                  <button type="submit" class="btn btn-primary">Start as Women</button>
-                </form>
-
-            </div>
-        </div>
-      </div>
-    </div>
-    </body>
 </html>

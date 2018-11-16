@@ -2,6 +2,7 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
+const fs = require('fs');
 
 const {generateImage, generateMessage, generateLocationMessage} = require('./utils/message');
 const {isRealString} = require('./utils/validation');
@@ -16,7 +17,7 @@ var users = new Users();
 
 // ユーザーはpublicへ
 app.use(express.static(publicPath));
-
+app.use('/images', express.static(__dirname + '../public/images'));
 //コネクション確立
 io.on('connection', (socket) => {
   console.log('New user connected');
@@ -53,13 +54,14 @@ io.on('connection', (socket) => {
       // 特定のユーザーを取り出す
     var user = users.getUser(socket.id);
 
+    fs.writeFileSync(`./public/images/uploads/${image.fName}`,new Buffer(image.buffer),'binary');
       //  文字列の場合
     if (user) {
         // ルームに送信
-      io.to(user.room).emit('newImage', generateImage(user.name, image));
+      io.to(user.room).emit('newImage', generateImage(user.name, image.fName));
     }
     // callback 何もしない
-    console.log(image);
+
     callback();
   });
 
