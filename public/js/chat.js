@@ -96,6 +96,19 @@ jQuery('#message-form').on('submit', function (e) {
 });
 
 // form id
+jQuery('#number-form').on('submit', function (e) {
+  e.preventDefault();
+
+  var numberData = jQuery('[name=radio]:checked').val();
+
+  socket.emit('createMessage', {
+    text: numberData
+  }, function () {
+    //numberData.val('')
+  });
+});
+
+// form id
 jQuery('#image-form').on('submit', function (e) {
   e.preventDefault();
 

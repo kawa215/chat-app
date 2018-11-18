@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
-<!-- 一応ばか丁寧にコメント書いていきます-->
+
 <head>
   <meta charset="utf-8">
-  <!--ページタイトルウィンどう上のたぶに出てくる名前-->
-  <title>title</title>
-  <!--これはなんかスマホとかの小さい画面になって時に自動でレイアウト変更してくれるやつ-->
+  <title>Join | ChatApp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <!--スタイルシート(css)の読み込-->
-  <link rel="stylesheet" href="/css/styles3.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-<!--bodyからページ中身-->
-
-<!--classぐらいは勿論知ってる? 一応書きます-->
-
-<!--css に　
-    .top{~~~}って書いてあると思います
-    その~~の中身が<body>で囲まれいる範囲全部(ページ全体)に適用されてる
-
-    ~cssの中身抜粋~
-    .top{
-      height:100vh;　高さ
-      width:100vw;　　幅
-      text-align:center;　文字は中央に配置
-      background(背景)をグラデーションにする　degは角度　スタートの色　変化し終わる色
-      background:-webkit-linear-gradient(125deg,rgba(255,239,213,1) 0,rgba(255,230,129,1) 100%)
-    }
-    -->
-<body class="top">
-  <div class="together">
-    <img src="./images/top.jpg">
-    <p class="gameName">GAME NAME</p>
+<body class="centered-form">
+  <div class="centered-form__form">
+    <form action="/chat.html">
+      <div class="form-field">
+        <h3>Join a Chat<h3>
+      </div>
+      <div class="form-field">
+        <label>Display name</label>
+        <input type="text" name="name" autofocus/>
+      </div>
+      <div class="form-field">
+        <label>Room name</label>
+        <input type="text" name="room"/>
+      </div>
+      <div class="form-field">
+        <button>Join</button>
+      </div>
+    </form>
+      <div class="form-field">
+        <button onclick="location.href='/comment.html'">Comment</button>
+      </div>
+      <div class="form-field">
+        <button onclick="location.href='/newindex.html'">newindex</button>
+      </div>
   </div>
-  <button onclick="location.href='/select.html'"><h2>START!</h2></button>
 </body>
 
 </html>

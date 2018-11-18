@@ -11,16 +11,37 @@
 </head>
 <body class="top">
 
-<img class="" src="./images/serious.jpg" alt="">
-  <div>
-    <form id="image-form">
-      <input name="image" id="file" type="file">
-      <button>Send Image</button>
-    </form>
-    <button onclick="location.href='/join2.html'">Evaluate</button>
-    <button>Comment</button>
-  </div>
-  <div>CharName</div>
-  <textarea rows="10" cols="60">ここに記入してください</textarea>
+    <img class="mainGirl" src="./images/girl1.png" alt="">
+
+    <div class="buttonGroup">
+
+      <form id="image-form">
+        <div class="button-field">
+          <label for="file_upload">
+            <img src="./images/camera.png">
+            <input name="imFile" id="file_upload" type="file">
+          </label>
+          <p></p>
+          <button>Send Image</button>
+        </div>
+      </form>
+
+      <div class="button-field">
+        <button onclick="location.href='/comment.html'">Comment</button>
+      </div>
+      <div class="button-field">
+        <button onclick="location.href='/evaluate.html'">Evaluate</button>
+      </div>
+    </div>
+    <div class="chatGroup">
+      <div class="char-area">
+        <div class="char-name">
+          CharName
+        </div>
+      </div>
+      <div class="text-area">
+        <textarea rows="10" cols="100">ここに記入してください</textarea>
+      </div>
+    </div>
 </body>
 </html>
