@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <!-- 一応ばか丁寧にコメント書いていきます-->
+
+<!-- audio要素/音楽を流す/うまくいかない 
+<audio autoplay loop>
+  <source src="./music/silver_spoon_まつもとたくや_title.mp3" type="audio/mp3">
+</audio>
+<audio id="buttonStartSE" preload="auto">
+  <sourse src="./se/システム決定音_zmino.mp3" type="audio/mp3">
+</audio> --->
+
 <head>
   <meta charset="utf-8">
   <!--ページタイトルウィンどう上のたぶに出てくる名前-->
@@ -8,14 +17,18 @@
   <!--これはなんかスマホとかの小さい画面になって時に自動でレイアウト変更してくれるやつ-->
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <!--スタイルシート(css)の読み込-->
-  <link rel="stylesheet" href="/css/styles3.css">
+  <link rel="stylesheet" href="./css/styles3.css">
 </head>
+
 <body class="topage">
   <div class="together">
-    <img src="./images/top.png">
-    <p class="gameName">GAME NAME</p>
+    <div class="img_top"><img src="./images/top.png"></div>
+    <p class="gameName"> f / m </p>
   </div>
-  <button onclick="location.href='/select.html'"><h2>START!</h2></button>
+  <a class="buttonStart" href="./select.html">
+    S T A R T
+  </a>
+
 </body>
 
 </html>
