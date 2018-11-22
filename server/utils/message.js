@@ -1,16 +1,14 @@
 var moment = require('moment');
 
-var generateMessage = (from, text) => {
+var generateMessage = (text) => {
   return {
-    from,
     text,
     createdAt: moment().valueOf()
   };
 };
 
-var generateImage = (from, fName) => {
+var generateImage = (fName) => {
   return {
-    from,
     fName,
     createdAt: moment().valueOf()
   };

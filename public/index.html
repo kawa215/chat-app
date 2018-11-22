@@ -10,18 +10,36 @@
 
 <body class="centered-form">
   <div class="centered-form__form">
-    <form action="/chat.html">
+    <form action="/home.html">
       <div class="form-field">
         <h3>Join a Chat<h3>
       </div>
       <div class="form-field">
         <label>Display name</label>
-        <input type="text" name="name" autofocus/>
+        <input type="text" value="a" name="name" autofocus/>
       </div>
       <div class="form-field">
+        <input id="1" type="radio" name="radio" value="1" />
+        <label for="1">man</label>
+        <input id="2" type="radio" name="radio" value="2"/>
+        <label for="2">women</label>
+      </div>
+      <!-- <div class="form-field">
         <label>Room name</label>
         <input type="text" name="room"/>
+      </div> -->
+      <div class="form-field">
+        <label>Room1 name</label>
+        <input type="text" value="1" name="room[][place]"/>
       </div>
+      <div class="form-field">
+        <label>Room2 name</label>
+        <input type="text" value="1" name="room[][place]"/>
+      </div>
+      <!-- <div class="form-field">
+        <label>Room name</label>
+        <input type="text" value="1" name="roo"/>
+      </div> -->
       <div class="form-field">
         <button>Join</button>
       </div>
@@ -31,6 +49,9 @@
       </div>
       <div class="form-field">
         <button onclick="location.href='/newindex.html'">newindex</button>
+      </div>
+      <div class="form-field">
+        <button onclick="location.href='/select_2.html'">selecct2</button>
       </div>
   </div>
 </body>
