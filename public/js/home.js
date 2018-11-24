@@ -20,16 +20,10 @@ socket.on('connect', function () {
   //console.log($.parseQuery(window.location.href));
   var params = $.deparam.querystring(window.location.search);
 
-
-  params.gender = params.radio;
-  console.log(params.radio);
-  params.man = params.room[0].place;
-  params.women = params.room[1].place;
-
   //params.newroom = params.room[0].place + params.room[1];
-  params.nroom = params.room[0].place + params.room[1].place;
+  params.nroom = params.man + params.woman;
 
-  console.log(params);
+  console.log("params:",params);
 
   socket.emit('join', params, function (err) {
     if (err) {
@@ -45,13 +39,37 @@ socket.on('disconnect', function () {
   console.log('Disconnected from server');
 });
 
+socket.on('setName', function (gender, setN , num) {
+
+  jQuery('#char-box').html(setN);
+
+  var name = '';
+  //　男
+
+  if( gender === '1') {
+    name = 'girl' + num + '.png';
+  }
+  else{
+    name = 'boy' + num + '.png';
+  }
+  console.log(name);
+  var template = jQuery('#charImage-template').html();
+  var html = Mustache.render(template, {
+    fName: name,
+  });
+  console.log(html,"+gender",gender);
+  jQuery('#i-png').html(html);
+
+  //scrollToBottom();
+});
+
 socket.on('updateName', function (name,room, id) {
   // var ol = jQuery('<ol></ol>');
 
   // users.forEach(function (user) {
   //   ol.append(jQuery('<li></li>').text(user));
   // });
-    jQuery('#char-box').html(name);
+    jQuery('#sentName').html(name);
     socket.emit('updateMyName', socket.id);
 
 });
@@ -62,7 +80,7 @@ socket.on('updateName2', function (name) {
   // users.forEach(function (user) {
   //   ol.append(jQuery('<li></li>').text(user));
   // });
-    jQuery('#char-box').html(name);
+    jQuery('#sentName').html(name);
 
 });
 
@@ -77,6 +95,18 @@ socket.on('newMessage', function (message) {
   jQuery('#message-box').html(html);
   console.log(html);
   //scrollToBottom();
+});
+
+socket.on('newLog', function (message) {
+  console.log("message=",message.text);
+  var formattedTime = moment(message.createdAt).format('h:mm a');
+  var template = jQuery('#log-template').html();
+  var html = Mustache.render(template, {
+    text: message.text,
+    createdAt: formattedTime
+  });
+
+  jQuery('#logTemplate').append(html);
 });
 
 socket.on('newYourImage', function (image) {
@@ -95,6 +125,7 @@ socket.on('newYourImage', function (image) {
 
 socket.on('sentImage', function (image) {
   console.log("ok");
+  alert("新しい写真が送られてきたよ！");
   var formattedTime = moment(image.createdAt).format('h:mm a');
   var template = jQuery('#image-template').html();
   var html = Mustache.render(template, {
@@ -109,7 +140,7 @@ socket.on('sentImage', function (image) {
 
 socket.on('newEvaluation', function (message) {
   console.log("ok");
-
+  alert("相手から評価が送られてきたよ！");
   var num = parseInt(message.text);
   var count = 0;
   var template = $('#star-template').html();
@@ -135,19 +166,6 @@ socket.on('newEvaluation', function (message) {
   // scrollToBottom();
 });
 
-// socket.on('newLocationMessage', function (message) {
-//   var formattedTime = moment(message.createdAt).format('h:mm a');
-//   var template = jQuery('#location-message-template').html();
-//   var html = Mustache.render(template, {
-//     from: message.from,
-//     url: message.url,
-//     createdAt: formattedTime
-//   });
-//
-//   jQuery('#messages').append(html);
-//   scrollToBottom();
-// });
-
 // form id
 jQuery('#message-area').on('submit', function (e) {
   e.preventDefault();
@@ -159,6 +177,12 @@ jQuery('#message-area').on('submit', function (e) {
   }, function () {
     messageTextbox.val('')
   });
+
+  socket.emit('createLog', {
+    text: messageTextbox.val(),
+  }, function () {
+  });
+
 });
 
 // form id

@@ -30,13 +30,78 @@ io.on('connection', (socket) => {
       return callback('すでに部屋が一杯です!他のタイプを選んでください!!');
     }
 
+    if(users.getUserList(params.nroom).length === 1){
+      var user = users.getUser_room(params.nroom);
+      if(params.gender === user.gender) {
+        return callback('すでに部屋が一杯です!他のタイプを選んでください!!');
+      }
+    }
     // 特定の部屋に
     socket.join(params.nroom);
 
     users.removeUser(socket.id);
     // ユーザーの追加
-    users.addUser(socket.id, params.name, params.nroom, params.gender ,params.man , params.women);
+    users.addUser(socket.id, params.name, params.nroom, params.gender ,params.man , params.woman);
 
+    //キャラ名設定
+    var setN  = '';
+    var num = 0;
+    console.log(params.gender);
+    if( params.gender === '1' ){
+      var type = params.woman;
+      switch (type) {
+        case '1':
+          setN = 'メイ';
+          num = 1;
+          break;
+        case '2':
+          setN = 'イオリ';
+          num = 2;
+          break;
+        case '3':
+          setN = 'ジュリ';
+          num = 3;
+          break;
+        case '4':
+          setN = 'ヨウコ';
+          num = 4;
+          break;
+        case '5':
+          setN = 'リナ';
+          num = 5;
+          break;
+        default:
+          console.log('失敗');
+      }
+    } else {
+      var type = params.man;
+      switch (type) {
+        case '1':
+          setN = 'イツキ';
+          num = 1;
+          break;
+        case '2':
+          setN = 'メグム';
+          num = 2;
+          break;
+        case '3':
+          setN = 'ジュン';
+          num = 3;
+          break;
+        case '4':
+          setN = 'ヨウイチ';
+          num = 4;
+          break;
+        case '5':
+          setN = 'ウミ';
+          num = 5;
+          break;
+        default:
+          console.log('失敗');
+      }
+    }
+    console.log("gender=",params.gender);
+    socket.emit('setName', params.gender, setN, num);
     // console.log(users.getUserList(params.nroom));
 
     // キャラクターの名前変更
@@ -47,6 +112,7 @@ io.on('connection', (socket) => {
     }
     else {
       socket.emit('newMessage', generateMessage('f/m app にようこそ !　服の写真、もしくはメッセージを送ってみましょう！'));
+
       socket.broadcast.to(params.nroom).emit('updateName', params.name , params.nroom,socket.id);
     }
 
@@ -87,6 +153,18 @@ io.on('connection', (socket) => {
     // callback 何もしない
 
     callback();
+  });
+
+  socket.on('createLog', (message, callback) => {
+      // 特定のユーザーを取り出す
+      var user = users.getUser(socket.id);
+
+      //  文字列の場合
+      if (user && isRealString(message.text)) {
+        socket.emit('newLog', generateMessage(message.text));
+      }
+    // callback 実行 テキストボックスを空にする
+      callback();
   });
 
   socket.on('createMessage', (message, callback) => {
@@ -138,8 +216,8 @@ io.on('connection', (socket) => {
     var user = users.removeUser(socket.id);
 
     if (user) {
-      // io.to(user.room).emit('updateUserList', users.getUserList(user.room));
-      // io.to(user.room).emit('newMessage', generateMessage('Admin', `${user.name} has left.`));
+      socket.broadcast.to(user.room).emit('updateUserList', users.getUserList(user.room));
+      socket.broadcast.to(user.room).emit('newMessage', generateMessage(`${user.name}さんが退出されました.`));
     }
   });
 });

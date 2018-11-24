@@ -1,59 +1,34 @@
 <!DOCTYPE html>
 <html>
-
+<!-- 一応ばか丁寧にコメント書いていきます-->
 <head>
   <meta charset="utf-8">
-  <title>Join | ChatApp</title>
+  <!--ページタイトルウィンどう上のたぶに出てくる名前-->
+  <title>title</title>
+  <!--これはなんかスマホとかの小さい画面になって時に自動でレイアウト変更してくれるやつ-->
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="/css/styles.css">
+  <!--スタイルシート(css)の読み込-->
+  <link rel="stylesheet" href="/css/styles3.css">
 </head>
-
-<body class="centered-form">
-  <div class="centered-form__form">
-    <form action="/home.html">
-      <div class="form-field">
-        <h3>Join a Chat<h3>
-      </div>
-      <div class="form-field">
-        <label>Display name</label>
-        <input type="text" value="a" name="name" autofocus/>
-      </div>
-      <div class="form-field">
-        <input id="1" type="radio" name="radio" value="1" />
-        <label for="1">man</label>
-        <input id="2" type="radio" name="radio" value="2"/>
-        <label for="2">women</label>
-      </div>
-      <!-- <div class="form-field">
-        <label>Room name</label>
-        <input type="text" name="room"/>
-      </div> -->
-      <div class="form-field">
-        <label>Room1 name</label>
-        <input type="text" value="1" name="room[][place]"/>
-      </div>
-      <div class="form-field">
-        <label>Room2 name</label>
-        <input type="text" value="1" name="room[][place]"/>
-      </div>
-      <!-- <div class="form-field">
-        <label>Room name</label>
-        <input type="text" value="1" name="roo"/>
-      </div> -->
-      <div class="form-field">
-        <button>Join</button>
-      </div>
-    </form>
-      <div class="form-field">
-        <button onclick="location.href='/comment.html'">Comment</button>
-      </div>
-      <div class="form-field">
-        <button onclick="location.href='/newindex.html'">newindex</button>
-      </div>
-      <div class="form-field">
-        <button onclick="location.href='/select_2.html'">selecct2</button>
-      </div>
+<body class="topage">
+  <!-- <div class="together">
+    <img src="./images/top.png">
+    <p class="gameName">~ F / M ~</p>
   </div>
+  <button onclick="location.href='/select.html'"><h2>START!</h2></button> -->
+
+  <div class="together">
+    <div class="img_top">
+      <img src="./images/top.png">
+    </div>
+    <p class="gameName-h"> f / m </p>
+  </div>
+  <a class="buttonStart" href="./select.html">
+    S T A R T
+  </a>
+
+  <script src="/js/libs/jquery-3.3.1.min.js"></script>
+
 </body>
 
 </html>

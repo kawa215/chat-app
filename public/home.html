@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="/css/styles3.css">
 </head>
-<body class="top">
+<body class="home">
 
   <div class="main-group">
 
@@ -28,14 +28,14 @@
 
     <div class="myform-group">
         <div class="form-item">
-          <h2>Your Photo</h2>
+          <h3>Your Photo</h3>
         </div>
         <div id="your-photos" class="form-item">
-          <img src="./images/uploads/IMG_0564.JPG" alt="">
+          <!-- <img src="./images/uploads/IMG_0564.JPG" alt=""> -->
         </div>
 
       <div class="form-item">
-        <h3>Evaluation</h3>
+        <h4>Evaluation</h4>
         <div class="star-group">
           <div id="star-area">
 
@@ -44,21 +44,21 @@
       </div>
     </div>
 
-    <div class="char-group">
-      <img src="./images/girl1.png">
+    <div id="i-png" class="char-group">
+
     </div>
 
     <div class="form-group">
       <div id="sent-photo" class="form-item">
-        <h1>Sent Photo</h1>
+        <h1>- Sent Photo -</h1>
       </div>
       <div id="oppnent-photo" class="form-item">
-        <img src="./images/uploads/IMG_0564.JPG" alt="">
+        <!-- <img src="./images/uploads/IMG_0564.JPG" alt=""> -->
       </div>
       <div class="form-item">
         <div class="form-field">
             <form id="number-form">
-              <div class="form-item">
+              <div class="number-item">
                 <input id="1" type="radio" name="radio" value="1" />
                 <label for="1">1</label>
                 <input id="2" type="radio" name="radio" value="2"/>
@@ -77,8 +77,9 @@
     </div>
 
     <div class="textArea">
-      <h2 id="char-box"></h2>
-
+      <div class="char-area">
+        <h2 id="char-box"></h2>
+      </div>
       <div id="message-box">
 
       </div>
@@ -87,22 +88,18 @@
     <div class="message-group">
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Chat</a>
-          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Women</a>
-          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Man</a>
-          <!-- <a class="nav-item nav-link" id="nav-item-tab" data-toggle="tab" href="#nav-item" role="tab" aria-controls="nav-item" aria-selected="false">Item</a>
-          <a class="nav-item nav-link" id="nav-plus-tab" data-toggle="tab" href="#nav-plus" role="tab" aria-controls="nav-plus" aria-selected="false">Plus</a> -->
-          <a class="nav-item nav-link" id="nav-minus-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-minus" aria-selected="false">LOG</a>
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="white">Message</span></a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="white">Woman</span></a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="white">Man</span></a>
+          <a class="nav-item nav-link" id="nav-minus-tab" data-toggle="tab" href="#nav-minus" role="tab" aria-controls="nav-minus" aria-selected="false"><span class="white">Log</span></a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           <form id="message-area">
             <div class="message-item">
-              <textarea name="message" rows="13" cols="130" wrap="soft"></textarea>
-            </div>
-            <div class="message-item">
-              <button>Send</button>
+              <textarea name="message" rows="3" cols="105" wrap="soft"></textarea>
+              <p><button>Send</button></p>
             </div>
           </form>
 
@@ -111,10 +108,10 @@
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           <div class="template-text-area">
            <h5>
-             「...何それ。ーが、ーって感じ。ーも、ーって感じだし。もっと考えたら？いや、別にあんたのことなんか気にしてるわけじゃないけど。」
+             「わあ！すごくおしゃれじゃん！―が―なのとか…、―が―なのもすごくいい！！ますます好きになっちゃいそうだよ…。」
            </h5>
            <h5>
-             「服とか気にするようになったんだ。少しだけ、少しだけね！ほんのちょっとだけね！ーがーとか思ってみちゃったり。ね。まあでも、ーがマイナス評価ーだから、勘違いしないでよね。」
+             「なるほど…―が―なのは間違えてしまったのでしょうか…？ですが、―が―なのはとても良いと思います…あっ上から目線でごめんなさい…。」
            </h5>
            <h5>
              「好きなんかじゃないんだからね！...嘘。嫌いじゃないし。むしろ、ーがーって思ってるあたしがいる。ーもーだし。もう好きかも。」
@@ -123,23 +120,24 @@
         </div>
 
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-          ...
-        </div>
-        <!-- <div class="tab-pane fade" id="nav-item" role="tabpanel" aria-labelledby="nav-item-tab">
-          ...
-        </div>
-        <div class="tab-pane fade" id="nav-plus" role="tabpanel" aria-labelledby="nav-plus-tab">
-          流行を取り入れている
-          似合っている
-          季節感がある
-          まとまりがある
-          年相応
-          清潔感がある
-          TPOに合っていない
-          落ち着いている
-        </div> -->
-        <div class="tab-pane fade" id="nav-minus" role="tabpanel" aria-labelledby="nav-minus-tab">
           <div class="template-text-area">
+            <h5>
+              「ひでーな。―が―なの分かる？―も―だから話にならねぇわ。
+              これだけ丁寧に教えてやったんだから次はもっとマシなの見せろよ。」
+            </h5>
+            <h5>
+              「なかなか良いと思います。ただ―が―なのは少し…考えた方が良いと思います。
+              ですが、―は―ですし、前よりもずっと素敵ですよ。」
+            </h5>
+            <h5>
+            「え！？びっくりした、すごく綺麗だよ！―が―なのとかおしゃれだし、―が―なのもすごい！このままデートいく？なんちゃって！」
+            </h5>
+          </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="nav-minus" role="tabpanel" aria-labelledby="nav-minus-tab">
+          <div id="logTemplate" class="template-text-area">
           </div>
         </div>
 
@@ -152,9 +150,17 @@
     <h4 id="a">{{text}}</h4>
     <script src="/js/typeWriter.js"></script>
   </script>
+  <script id="log-template" type="text/template">
+    <h6>{{createdAt}}</h6>
+    <h5>{{text}}</h5>
+  </script>
 
   <script id="image-template" type="text/template">
       <img src="./images/uploads/{{fName}}" alt="">
+  </script>
+
+  <script id="charImage-template" type="text/template">
+      <img src="./images/{{fName}}" alt="">
   </script>
 
   <script id="star-template" type="text/template">

@@ -1,68 +1,441 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+ <head>
+  <meta charset = "utf-8">
+  <title>Registration</title>
+  <meta name="viewport" content="width=device-width, initital-scale=1, user-scalable=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
   <link rel="stylesheet" href="/css/styles3.css">
-</head>
-<body class="top">
-  <p class="selFavCha">Select favorite character</p>
+  
+ </head>
+ <body class="topage">
+   <div id="setGroup">
+      <div id="home" class="nageGroup">
+        <div>
+          <label>Your name</label>
+        </div>
+        <div>
+          <input id="name" type="text" value="name" name="name" autofocus/>
+        </div>
+        <div class="manWomanGroup">
+          <label>Gender</label>
+          <div>
+            <div class="img-area1">
+              <label>Man</label>
+              <input id="man" type="radio" name="radio" value="1">
+              <label for="man">
+                <img src="./images/man.png" alt="">
+              </label><br>
 
-  <div id="carouselExampleIndicators" class="carousel slide top" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-10 girl" src="./images/cool.jpg" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-          <p class="girlType">Cool</p>
-          <p class="girlDesc">キャラクターの説明</p>
-          <form action="/home.html">
-            <button type="submit" name="room" value="1" class="girlButton"><h2>START!</h2></button>
-          </form>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-10 girl" src="./images/gentle.jpg" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-          <p class="girlType">Cool</p>
-          <p class="girlDesc">キャラクターの説明</p>
-          <form action="/home.html">
-            <button type="submit" name="room" value="2" class="girlButton"><h2>START!</h2></button>
-          </form>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-10 girl" src="./images/serious.jpg" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-          <p class="girlType">Cool</p>
-          <p class="girlDesc">キャラクターの説明</p>
-          <form action="/home.html">
-            <button type="submit" name="room" value="3" class="girlButton"><h2>START!</h2></button>
-          </form>
+            </div>
+            <div class="img-area2">
+              <label>woman</label>
+              <input id="woman" type="radio" name="radio" value="2">
+              <label for="woman">
+                <img src="./images/woman.png" alt="">
+              </label><br>
+            </div>
+          </div>
+          <div>
+            <button id="next">NEXT</button>
+          </div>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
+      <div class="input-textArea">
+        <div id="message-box">
+          <h4 id="b">あなたの名前と性別を決めましょう.</h4>
+          <script src="/js/typeWriter2.js"></script>
+        </div>
 
+
+      </div>
+
+      <script id="message-template" type="text/template">
+        <h4 id="b">{{text}}</h4>
+        <script src="/js/typeWriter2.js"></script>
+      </script>
+
+      <script id="man-template" type="text/template">
+        <div class="charSel">
+            <div class="carousel slide top" id="carouselExampleIndicators" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <!--activeがカルーセルの一番最初の要素になる-->
+                    <div class="carousel-item active">
+                        <img class="d-block w-10" src="./images/boy1.png" alt="boy1">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">イツキ</span>
+                              </div>
+                              <div class="descr-item">
+                                眉目秀麗.
+                              </div>
+                              <div class="descr-item">
+                                チャラそうだが、実はナイーブ。好きな人には一途。
+                              </div>
+                              <div class="descr-item">
+                                <button id="man1" class="girlButton" name ="boyNum" value ="boy1" ><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/boy2.png" alt="boy2">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">メグム</span>
+                              </div>
+                              <div class="descr-item">
+                                性格は気楽でどんな時でも落ち込まない。
+                              </div>
+                              <div class="descr-item">
+                                あきらめるということを知らないポジティブな姿勢。
+                              </div>
+                              <div class="descr-item">
+                                <button  id="man2" class="girlButton" name ="boyNum" value ="boy1" ><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/boy3.png" alt="boy3">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">ジュン</span>
+                              </div>
+                              <div class="descr-item">
+                                実は天神乱漫な性格。
+                              </div>
+                              <div class="descr-item">
+                                周りを振り回しも気づかないほどの鈍感ペース。
+                              </div>
+                              <div class="descr-item">
+                                <button id="man3" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/boy4.png" alt="boy4">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">ヨウイチ</span>
+                              </div>
+                              <div class="descr-item">
+                                誰にでも分け隔てなく接する優しさをもつ。
+                              </div>
+                              <div class="descr-item">
+                                妹がいるので面倒見が良い。
+                              </div>
+                              <div class="descr-item">
+                                <button id="man4" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/boy5.png" alt="boy5">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">ウミ</span>
+                              </div>
+                              <div class="descr-item">
+                                無口、無愛想、無表情。
+                              </div>
+                              <div class="descr-item">
+                                他人と距離を取ることが多く、孤独感がある。学業は優秀。
+                              </div>
+                              <div class="descr-item">
+                                <button id="man5" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+
+      </script>
+
+      <script id="woman-template" type="text/template">
+        <div class="charSel">
+            <div class="carousel slide top" id="carouselExampleIndicators" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <!--activeがカルーセルの一番最初の要素になる-->
+                    <div class="carousel-item active">
+                        <img class="d-block w-10" src="./images/girl1.png" alt="girl1">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">メイ</span>
+                              </div>
+                              <div class="descr-item">
+                                極まれしおっとり系
+                              </div>
+                              <div class="descr-item">
+                                感情の起伏があまりない。友達も少なめの性格。
+                              </div>
+                              <div class="descr-item">
+                                <button id="woman1" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/girl2.png" alt="girl2">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">イオリ</span>
+                              </div>
+                              <div class="descr-item">
+                                控えめだが実はしっかり者。
+                              </div>
+                              <div class="descr-item">
+                                成績は優秀、恋愛には疎い性格。<br>常に高い目標を持ち生活行動している。
+                              </div>
+                              <div class="descr-item">
+                                <button id="woman2" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/girl3.png" alt="girl3">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">ジュリ</span>
+                              </div>
+                              <div class="descr-item">
+                                いつも笑顔でとにかく元気。
+                              </div>
+                              <div class="descr-item">
+                                クラスの中心的な存在。<br>どんな時でも持ち前の明るさで乗り越える。
+                              </div>
+                              <div class="descr-item">
+                                <button id="woman3" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/girl4.png" alt="girl4">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">ヨウコ</span>
+                              </div>
+                              <div class="descr-item">
+                                趣味は読書。あまり人前では喋らない。
+                              </div>
+                              <div class="descr-item">
+                                心を開いた相手にはとてもおしゃべりになる。
+                              </div>
+                              <div class="descr-item">
+                                <button id="woman4" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img class="d-block w-10" src="./images/girl5.png" alt="girl5">
+                        <div class="carousel-caption d-none d-md-block">
+
+                            <div class="descr">
+                              <div class="descr-item">
+                                <span class="girlName">リナ</span>
+                              </div>
+                              <div class="descr-item">
+                                サバサバ系女子。
+                              </div>
+                              <div class="descr-item">
+                                多少の困難があっても割り切って対処する。<br>学校では相談役的な存在。
+                              </div>
+                              <div class="descr-item">
+                                <button id="woman5" class="girlButton" name ="boyNum" value ="boy1"><h4>NEXT</h4></button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+
+      </script>
+
+      <!-- <script id="log-template" type="text/template">
+        <h6>{{createdAt}}</h6>
+        <h5>{{text}}</h5>
+      </script>
+
+      <script id="image-template" type="text/template">
+          <img src="./images/uploads/{{fName}}" alt="">
+      </script> -->
+
+      <!-- <div class="inputGender" ><label id="genderTitle">GENDER</label><br>
+          <input type="radio" name="b" value="MEN" onclick="setLabel('MEN')">  MEN
+          <select name="my feature">
+              <option value="cool">お兄さん系</option>
+              <option value="boyish">ボーイッシュ</option>
+              <option value="glasses">スマート系</option>
+              <option value="other1">可愛い系</option>
+              <option value="other2">クール系</option>
+              </select>choice character yourself<br>
+          <input type="radio" name="b" value="WOMEN" onclick="setLabel('WOMEN')">  WOMEN
+          <select name="my feature">
+              <option value="fun">元気な子</option>
+              <option value="cute">可愛い系</option>
+              <option value="sister">お姉さん系</option>
+              <option value="other1">クール系</option>
+              <option value="other2">美人系</option>
+              </select>自身のキャラを選択してね<br>
+      </div>
+      <h2>好きなキャラを選んでね</h2>
+      <div class="charSel">
+          <div class="carousel slide top" id="carouselExampleIndicators" data-ride="carousel">
+              <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+              </ol>
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <img class="d-block w-10" src="./images/girl1.png" alt="Girl1">
+                      <div class="carousel-caption d-none d-md-block">
+                          <p class="girlName">メイ</p>
+                          <div class="s">
+                              <p>いつも笑顔でとにかく元気が取り柄.直感と思いつきで行動することが多く、一度決めたら猪突猛進の一直線で誰にも止められない.しかし、多少の困難があっても持ち前のポジティブで次々と突破していく.</p>
+                          </div>
+                          <button class="girlButton" "><h2>START!</h2></button>
+                      </div>
+                  </div>
+
+                  <div class="carousel-item">
+                      <img class="d-block w-10" src="./images/girl2.png" alt="Girl2">
+                      <div class="carousel-caption d-none d-md-block">
+                          <p class="girlName">イオリ</p>
+                          <div class="s">
+                              <p>おっとりと柔らかい性格で、勉強もそつなくこなす優等生.おっとりはしているが芯は強く、物怖じしないためいざというときに頼りになる.ただ、普段はおっちょこちょいであるため、皆から可愛いがられる妹的存在.</p>
+                          </div>
+                          <button class="girlButton" "><h2>START!</h2></button>
+                      </div>
+                  </div>
+
+                  <div class="carousel-item">
+                      <img class="d-block w-10" src="./images/girl3.png" alt="Girl3">
+                      <div class="carousel-caption d-none d-md-block">
+                          <p class="girlName">ジュリ</p>
+                          <div class="s">
+                              <p>体育会系でいつも明るく、くよくよ悩むより体を動かすタイプ.年下の幼なじみがいるからか、面倒見がよい.同年代からも相談されたりお姉さん扱いされることもしばしば.頼られたら見捨てられない性格のため、貧乏くじを引くこともある</p>
+                          </div>
+                          <button class="girlButton" "><h2>START!</h2></button>
+                      </div>
+                  </div>
+
+                  <div class="carousel-item">
+                      <img class="d-block w-10" src="./images/girl4.png" alt="Girl4">
+                      <div class="carousel-caption d-none d-md-block">
+                          <p class="girlName">ヨウコ</p>
+                          <div class="s">
+                              <p>天才肌でマイペースな性格.そのためか、他人からは想像もできない方向に話が飛んだり、行動をとったりすることがある.総じて、不思議ちゃんと見られるが本人に自覚はないため、ある意味残念な天才.</p>
+                          </div>
+                          <button class="girlButton" "><h2>START!</h2></button>
+                      </div>
+                  </div>
+
+                  <div class="carousel-item">
+                      <img class="d-block w-10" src="./images/girl5.png" alt="Girl5">
+                      <div class="carousel-caption d-none d-md-block">
+                          <p class="girlName">ウミ</p>
+                          <div class="s">
+                              <p>両親が会社を経営している、社長令嬢.幼い頃から習い事をたくさんしてきているためポテンシャルが高い.高飛車でプライドが高く、本心を見せるのが苦手.実はさみしがりな一面も？</p>
+                          </div>
+                          <button class="girlButton" "><h2>START!</h2></button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a> -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script src="/js/libs/jquery-3.3.1.min.js"></script>
+      <script src="/js/libs/mustache.js"></script>
+      <script src="/js/validation.js"></script>
+      <script src="/js/select.js"></script>
+
+
+ </body>
 </html>

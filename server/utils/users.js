@@ -14,8 +14,8 @@ class Users {
     this.users = [];
   }
   //配列追加
-  addUser (id, name ,room) {
-    var user = {id, name,room};
+  addUser (id, name ,room , gender, man , women) {
+    var user = {id, name, room, gender,  man, women};
     this.users.push(user);
     return user;
   }
@@ -32,6 +32,10 @@ class Users {
   //　指定したidを取り出す 配列型で
   getUser (id) {
     return this.users.filter((user) => user.id === id)[0]
+  }
+
+  getUser_room (room) {
+    return this.users.filter((user) => user.room === room)[0]
   }
   //
 
